@@ -13,6 +13,7 @@ import {
 	TableHead,
 	TableRow,
 } from "@mui/material";
+import { Box } from "@mui/system";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -109,35 +110,37 @@ export default function Home() {
 									{formatearFecha(row.fechaalta)}
 								</TableCell>
 								<TableCell>
-									<Button
-										variant="contained"
-										style={{
-											fontSize: "1rem",
-											padding: ".2rem",
-											fontWeight: 700,
-										}}
-										onClick={() => {
-											dispatch(empleado(row));
-											setModalEditar(true);
-										}}
-									>
-										Editar
-									</Button>
-									<Button
-										variant="contained"
-										color="error"
-										style={{
-											fontSize: "1rem",
-											padding: ".2rem",
-											fontWeight: 700,
-										}}
-										onClick={() => {
-											dispatch(empleado(row));
-											setModalEliminar(true);
-										}}
-									>
-										Eliminar
-									</Button>
+									<Box sx={{ display: "flex", gap: "1rem" }}>
+										<Button
+											variant="contained"
+											style={{
+												fontSize: "1rem",
+												padding: ".2rem",
+												fontWeight: 700,
+											}}
+											onClick={() => {
+												dispatch(empleado(row));
+												setModalEditar(true);
+											}}
+										>
+											Editar
+										</Button>
+										<Button
+											variant="contained"
+											color="error"
+											style={{
+												fontSize: "1rem",
+												padding: ".2rem",
+												fontWeight: 700,
+											}}
+											onClick={() => {
+												dispatch(empleado(row));
+												setModalEliminar(true);
+											}}
+										>
+											Eliminar
+										</Button>
+									</Box>
 								</TableCell>
 							</TableRow>
 						))}
